@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 // Screens
 import HomeScreen from './pages/home';
-import DetailsScreen from './pages/detail';
+import CallScreen from './pages/detail';
 import SettingsScreen from './pages/Setting';
 import ContactScreen from './pages/contact';
 
@@ -27,15 +27,17 @@ const App = () => {
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="message-text" color={color} size={size} />
             ),
+            tabBarBadge: 8,
           }}
         />
-        <Tab.Screen name={detailsName} component={DetailsScreen}
+        <Tab.Screen name={detailsName} component={CallScreen}
           options={{
             tabBarLabel: 'Calls',
+            headerShown: false,
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="phone" color={color} size={size} />
             ),
-            tabBarBadge: 3,
+            tabBarBadge: 2,
           }} />
         <Tab.Screen name={ContactName} component={ContactScreen}
           options={{
@@ -43,7 +45,6 @@ const App = () => {
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="account-box" color={color} size={size} />
             ),
-            tabBarBadge: 3,
           }} />
         <Tab.Screen name={settingsName} component={SettingsScreen}
           options={{

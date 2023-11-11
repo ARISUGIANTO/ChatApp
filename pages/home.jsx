@@ -91,7 +91,7 @@ const HomeScreen = ({ navigation }) => {
                         <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
                             <Text style={{ fontSize: 10 }}>11.04</Text>
                             <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
-                                <Text style={{ color: 'white' }}>3</Text>
+                                <Text style={{ color: 'white' }}>2</Text>
                             </View>
                         </View>
 
@@ -119,7 +119,7 @@ const HomeScreen = ({ navigation }) => {
                         <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
                             <Text style={{ fontSize: 10 }}>Kemaren</Text>
                             <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
-                                <Text style={{ color: 'white' }}>5</Text>
+                                <Text style={{ color: 'white' }}>1</Text>
                             </View>
                         </View>
 
@@ -133,7 +133,7 @@ const HomeScreen = ({ navigation }) => {
                         <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
                             <Text style={{ fontSize: 10 }}>Kemaren</Text>
                             <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
-                                <Text style={{ color: 'white' }}>4</Text>
+                                <Text style={{ color: 'white' }}>1</Text>
                             </View>
                         </View>
 
@@ -147,7 +147,7 @@ const HomeScreen = ({ navigation }) => {
                         <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
                             <Text style={{ fontSize: 10 }}>5/11/23</Text>
                             <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
-                                <Text style={{ color: 'white' }}>2</Text>
+                                <Text style={{ color: 'white' }}>1</Text>
                             </View>
                         </View>
 
@@ -175,7 +175,7 @@ const HomeScreen = ({ navigation }) => {
                         <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
                             <Text style={{ fontSize: 10 }}>01/11/23</Text>
                             <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
-                                <Text style={{ color: 'white' }}>2</Text>
+                                <Text style={{ color: 'white' }}>1</Text>
                             </View>
                         </View>
 
