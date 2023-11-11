@@ -42,6 +42,7 @@ const App = () => {
         <Tab.Screen name={ContactName} component={ContactScreen}
           options={{
             tabBarLabel: 'Contact',
+            headerShown: false,
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="account-box" color={color} size={size} />
             ),
