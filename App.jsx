@@ -50,6 +50,7 @@ const App = () => {
         <Tab.Screen name={settingsName} component={SettingsScreen}
           options={{
             tabBarLabel: 'Setting',
+            headerShown: false,
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="cog" color={color} size={size} />
             ),
