@@ -1,13 +1,10 @@
 // HomeScreen.js
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, ImageBackground, Image } from 'react-native';
+import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import SearchBar from '../component/SearchBar';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Card from '../component/card';
-import Button from '../component/button';
-import Circle from '../component/circle';
-import FastImage from 'react-native-fast-image';
+
 
 const HomeScreen = ({ navigation }) => {
     return (
@@ -65,7 +62,7 @@ const HomeScreen = ({ navigation }) => {
 
                     </View>
                 </View>
-                {/* Kolom chat */}
+                {/* List nama-nama chat */}
                 <View style={{ backgroundColor: '#FFFFFF', borderTopRightRadius: 30, borderTopLeftRadius: 30, marginTop: -30 }}>
                     <View style={{
                         justifyContent: 'center', alignItems: 'center',
@@ -78,108 +75,123 @@ const HomeScreen = ({ navigation }) => {
                             borderColor: '#EBE3D5',
                         }} ></View>
                     </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
-                        <View>
+                    <TouchableOpacity onPress={() => navigation.navigate('Chat')} >
+                        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
+                            <View>
+                                <Image source={require('../src/assets/profile.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
+                                <View style={{ backgroundColor: '#A6FF96', width: 10, height: 10, borderRadius: 10, position: 'relative', marginTop: -8, marginLeft: 30 }}></View>
+                            </View>
+
+                            <View style={{ flex: 1, marginLeft: 10, }}>
+                                <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Ach Ramdani</Text>
+                                <Text style={{ fontSize: 10, fontWeight: 300 }}>Kapan Kamu Kerumah?</Text>
+                            </View>
+                            <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
+                                <Text style={{ fontSize: 10 }}>11.04</Text>
+                                <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
+                                    <Text style={{ color: 'white' }}>2</Text>
+                                </View>
+                            </View>
+
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
+                            <Image source={require('../src/assets/profile2.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
+                            <View style={{ flex: 1, marginLeft: 10, }}>
+                                <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Thufael Mirza</Text>
+                                <Text style={{ fontSize: 10, fontWeight: 300 }}>Ketemu ditempat biasa ya!?</Text>
+                            </View>
+                            <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
+                                <Text style={{ fontSize: 10 }}>Kemaren</Text>
+                                <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
+                                    <Text style={{ color: 'white' }}>1</Text>
+                                </View>
+                            </View>
+
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
+                            <Image source={require('../src/assets/profile3.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
+                            <View style={{ flex: 1, marginLeft: 10, }}>
+                                <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Dwi Rafinul A</Text>
+                                <Text style={{ fontSize: 10, fontWeight: 300 }}>Sampai jumpa kembali👋</Text>
+                            </View>
+                            <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
+                                <Text style={{ fontSize: 10 }}>Kemaren</Text>
+                                <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
+                                    <Text style={{ color: 'white' }}>1</Text>
+                                </View>
+                            </View>
+
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
+                            <Image source={require('../src/assets/profile4.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
+                            <View style={{ flex: 1, marginLeft: 10, }}>
+                                <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Moh Iqbal AR</Text>
+                                <Text style={{ fontSize: 10, fontWeight: 300 }}>Jangan lupa hadir Ya!</Text>
+                            </View>
+                            <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
+                                <Text style={{ fontSize: 10 }}>Kemaren</Text>
+                                <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
+                                    <Text style={{ color: 'white' }}>1</Text>
+                                </View>
+                            </View>
+
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
+                            <Image source={require('../src/assets/profile5.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
+                            <View style={{ flex: 1, marginLeft: 10, }}>
+                                <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Bayu Yalta</Text>
+                                <Text style={{ fontSize: 10, fontWeight: 300 }}>Info hari ini Boss</Text>
+                            </View>
+                            <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
+                                <Text style={{ fontSize: 10 }}>5/11/23</Text>
+                                <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
+                                    <Text style={{ color: 'white' }}>1</Text>
+                                </View>
+                            </View>
+
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
+                            <Image source={require('../src/assets/profile6.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
+                            <View style={{ flex: 1, marginLeft: 10, }}>
+                                <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Ach Rohil Kh</Text>
+                                <Text style={{ fontSize: 10, fontWeight: 300 }}>Aku izin ga bisa masuk hari ini </Text>
+                            </View>
+                            <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
+                                <Text style={{ fontSize: 10 }}>01/11/23</Text>
+                                <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
+                                    <Text style={{ color: 'white' }}>1</Text>
+                                </View>
+                            </View>
+
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
                             <Image source={require('../src/assets/profile.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                            <View style={{ backgroundColor: '#A6FF96', width: 10, height: 10, borderRadius: 10, position: 'relative', marginTop: -8, marginLeft: 30 }}></View>
-                        </View>
-
-                        <View style={{ flex: 1, marginLeft: 10, }}>
-                            <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Ach Ramdani</Text>
-                            <Text style={{ fontSize: 10, fontWeight: 300 }}>Kapan Kamu Kerumah?</Text>
-                        </View>
-                        <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
-                            <Text style={{ fontSize: 10 }}>11.04</Text>
-                            <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
-                                <Text style={{ color: 'white' }}>2</Text>
+                            <View style={{ flex: 1, marginLeft: 10, }}>
+                                <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>King Mulyadi</Text>
+                                <Text style={{ fontSize: 10, fontWeight: 300 }}>Mabar Yukks😁</Text>
                             </View>
-                        </View>
-
-                    </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
-                        <Image source={require('../src/assets/profile2.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                        <View style={{ flex: 1, marginLeft: 10, }}>
-                            <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Thufael Mirza</Text>
-                            <Text style={{ fontSize: 10, fontWeight: 300 }}>Ketemu ditempat biasa ya!?</Text>
-                        </View>
-                        <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
-                            <Text style={{ fontSize: 10 }}>Kemaren</Text>
-                            <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
-                                <Text style={{ color: 'white' }}>1</Text>
+                            <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
+                                <Text style={{ fontSize: 10 }}>01/11/23</Text>
+                                <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
+                                    <Text style={{ color: 'white' }}>1</Text>
+                                </View>
                             </View>
-                        </View>
 
-                    </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
-                        <Image source={require('../src/assets/profile3.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                        <View style={{ flex: 1, marginLeft: 10, }}>
-                            <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Dwi Rafinul A</Text>
-                            <Text style={{ fontSize: 10, fontWeight: 300 }}>Sampai jumpa kembali👋</Text>
                         </View>
-                        <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
-                            <Text style={{ fontSize: 10 }}>Kemaren</Text>
-                            <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
-                                <Text style={{ color: 'white' }}>1</Text>
-                            </View>
-                        </View>
+                    </TouchableOpacity>
 
-                    </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
-                        <Image source={require('../src/assets/profile4.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                        <View style={{ flex: 1, marginLeft: 10, }}>
-                            <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Moh Iqbal AR</Text>
-                            <Text style={{ fontSize: 10, fontWeight: 300 }}>Jangan lupa hadir Ya!</Text>
-                        </View>
-                        <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
-                            <Text style={{ fontSize: 10 }}>Kemaren</Text>
-                            <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
-                                <Text style={{ color: 'white' }}>1</Text>
-                            </View>
-                        </View>
-
-                    </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
-                        <Image source={require('../src/assets/profile5.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                        <View style={{ flex: 1, marginLeft: 10, }}>
-                            <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Bayu Yalta</Text>
-                            <Text style={{ fontSize: 10, fontWeight: 300 }}>Info hari ini Boss</Text>
-                        </View>
-                        <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
-                            <Text style={{ fontSize: 10 }}>5/11/23</Text>
-                            <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
-                                <Text style={{ color: 'white' }}>1</Text>
-                            </View>
-                        </View>
-
-                    </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
-                        <Image source={require('../src/assets/profile6.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                        <View style={{ flex: 1, marginLeft: 10, }}>
-                            <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Ach Rohil Kh</Text>
-                            <Text style={{ fontSize: 10, fontWeight: 300 }}>Aku izin ga bisa masuk hari ini </Text>
-                        </View>
-                        <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
-                            <Text style={{ fontSize: 10 }}>01/11/23</Text>
-                            <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
-                                <Text style={{ color: 'white' }}>1</Text>
-                            </View>
-                        </View>
-
-                    </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
-                        <Image source={require('../src/assets/profile.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                        <View style={{ flex: 1, marginLeft: 10, }}>
-                            <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>King Mulyadi</Text>
-                            <Text style={{ fontSize: 10, fontWeight: 300 }}>Mabar Yukks😁</Text>
-                        </View>
-                        <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
-                            <Text style={{ fontSize: 10 }}>01/11/23</Text>
-                            <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
-                                <Text style={{ color: 'white' }}>1</Text>
-                            </View>
-                        </View>
-
-                    </View>
                 </View>
 
             </View>

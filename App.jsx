@@ -1,12 +1,15 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// tambahan
+import { createStackNavigator } from '@react-navigation/stack';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 // Screens
 import HomeScreen from './pages/home';
 import CallScreen from './pages/detail';
 import SettingsScreen from './pages/Setting';
 import ContactScreen from './pages/contact';
+import ChatScreen from './pages/chat';
 
 //Screen names
 const homeName = "Home";
@@ -14,13 +17,24 @@ const detailsName = "Calls";
 const settingsName = "Setting";
 const ContactName = "contact";
 
+
 const Tab = createBottomTabNavigator();
+// tambahan
+const HomeStack = createStackNavigator();
+const HomeStackScreen = () => {
+  return (
+    <HomeStack.Navigator>
+      <HomeStack.Screen name="home" component={HomeScreen} options={{ headerShown: false }} />
+      <HomeStack.Screen name="Chat" component={ChatScreen} />
+    </HomeStack.Navigator>
+  );
+};
 
 const App = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name={homeName} component={HomeScreen}
+        <Tab.Screen name={homeName} component={HomeStackScreen}
           options={{
             tabBarLabel: 'Message',
             headerShown: false,
@@ -57,6 +71,8 @@ const App = () => {
           }} />
 
       </Tab.Navigator>
+
+
     </NavigationContainer>
   );
 }
