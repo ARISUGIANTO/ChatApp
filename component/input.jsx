@@ -9,7 +9,7 @@ const Input = () => {
         <View style={styles.container}>
             <TextInput
                 style={styles.input}
-                placeholder="Search Coffe"
+                placeholder="Ketik......."
                 placeholderTextColor="#999"
             />
             < MaterialCommunityIcons name="file-plus" color={'#003865'} size={30} />

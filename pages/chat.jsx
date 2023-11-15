@@ -1,9 +1,10 @@
-import React from 'react';
-import { View, Text, Image, ImageBackground } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Image, ImageBackground, FlatList } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Card from '../component/card';
 import Circle from '../component/circle';
 import Input from '../component/input';
+import { Item } from 'react-native-paper/lib/typescript/components/Drawer/Drawer';
 
 
 const ChatScreen = ({ navigation }) => {
@@ -30,33 +31,59 @@ const ChatScreen = ({ navigation }) => {
             ),
         });
     }, [navigation]);
+    const [jam] = useState([
+
+        { jam: '09.25 AM', pengirim: 'dani' },
+        { jam: '09.30', pengirim: 'saya' },
+        { jam: '09.34', pengirim: 'dani' },
+        { jam: '09.34', pengirim: 'dani' },
+        { jam: '10.00', pengirim: 'saya' },
+        { jam: '11.00', pengirim: 'saya' },
+        { jam: '11.04', pengirim: 'dani' },
+
+
+    ])
 
 
     return (
-        <ImageBackground source={require('../src/assets/islamic.jpg')} resizeMode="cover" style={{}}>
-            <View>
-                <View style={{ backgroundColor: 'white', marginTop: 20, width: 60, height: 35, borderRadius: 10, alignItems: 'center', padding: 3, elevation: 4, marginLeft: '44%' }}>
-                    <Text style={{ fontSize: 18, fontWeight: '700' }}>
-                        Today
-                    </Text>
-                </View>
-                <View style={{ flexDirection: 'row', marginTop: 20 }}>
-                    <Image
-                        source={require('../src/assets/profile.png')}
-                        style={{ width: 50, height: 50, borderRadius: 10 }}
-                    />
+        <View style={{ height: '100%' }}>
+            <View style={{ backgroundColor: 'white', marginTop: 20, width: 60, height: 35, borderRadius: 10, alignItems: 'center', padding: 3, elevation: 4, marginLeft: '44%' }}>
+                <Text style={{ fontSize: 18, fontWeight: '700' }}>
+                    Today
+                </Text>
+            </View>
+            {/* Scroll Chat  */}
+            <FlatList
+                data={jam}
+                renderItem={({ item }) =>
+                    item.pengirim === 'saya' ? (
 
-                    <View style={{ marginTop: 5 }}>
-                        <Text style={{ fontSize: 15, fontWeight: '400', color: 'black', marginLeft: 9 }}>Ach Ramdani</Text>
-                        <Card />
-                        <Text style={{ fontSize: 14, fontWeight: '400', color: 'black', marginLeft: 'auto' }}>09.25 AM</Text>
-                    </View>
-                </View>
-                <View style={{ marginLeft: 'auto', marginRight: 15 }}>
-                    <Circle />
-                    <Text style={{ fontSize: 14, fontWeight: '400', color: 'black', marginLeft: 'auto', marginRight: 10 }}>09.30 AM</Text>
-                </View>
-                <View style={{ flexDirection: 'row', marginTop: 20 }}>
+                        <View style={{ alignItems: 'flex-end', marginRight: 15 }}>
+                            <Text style={{ color: 'black' }}>{item.pesan}</Text>
+                            <View>
+                                <Circle />
+                            </View>
+                            <Text style={{ fontSize: 14, fontWeight: '400', color: 'black', marginLeft: 'auto', marginRight: 10 }}>{item.jam}</Text>
+                        </View>
+                    ) :
+                        <View style={{ flexDirection: 'row', marginTop: 20 }}>
+                            <Image
+                                source={require('../src/assets/profile.png')}
+                                style={{ width: 50, height: 50, borderRadius: 10 }}
+                            />
+
+                            <View style={{ marginTop: 5 }}>
+                                <Text style={{ fontSize: 15, fontWeight: '400', color: 'black', marginLeft: 9 }}>Ach Ramdani</Text>
+                                <Card />
+                                <Text style={{ fontSize: 14, fontWeight: '400', color: 'black', marginLeft: 'auto' }}>{item.jam}</Text>
+                            </View>
+                        </View>
+
+                } />
+
+
+
+            {/* <View style={{ flexDirection: 'row', marginTop: 20 }}>
                     <Image
                         source={require('../src/assets/profile.png')}
                         style={{ width: 50, height: 50, borderRadius: 10 }}
@@ -69,7 +96,7 @@ const ChatScreen = ({ navigation }) => {
                         <Text style={{ fontSize: 14, fontWeight: '400', color: 'black', marginLeft: 'auto' }}>10.15 AM</Text>
                     </View>
                 </View>
-                <View style={{ marginLeft: 'auto', marginRight: 15 }}>
+                <View style={{ marginLeft: 'auto', marginRight: 15, marginBottom: 25 }}>
 
                     <Circle />
                     <Text style={{ fontSize: 14, fontWeight: '400', color: 'black', marginLeft: 'auto', marginRight: 10 }}>11.00 AM</Text>
@@ -83,20 +110,24 @@ const ChatScreen = ({ navigation }) => {
 
                     </View>
 
-                </View>
-                <View style={{ backgroundColor: 'white', flexDirection: 'row' }}>
-                    < MaterialCommunityIcons name="paperclip" color={'#003865'} size={40} />
-                    <Input />
-                    < MaterialCommunityIcons name="camera-outline" color={'#003865'} size={40} />
-                    < MaterialCommunityIcons name="microphone" color={'#003865'} size={40} />
+                </View> */}
+            {/* papan ketik */}
+            <View style={{ backgroundColor: 'white', flexDirection: 'row', alignItems: 'center' }}>
+                < MaterialCommunityIcons name="paperclip" color={'#003865'} size={40} style={{ transform: [{ rotate: '45deg' }] }} />
+                <Input />
+                < MaterialCommunityIcons name="camera-outline" color={'#003865'} size={40} style={{ marginLeft: 20 }} />
+                < MaterialCommunityIcons name="microphone" color={'#003865'} size={40} />
 
-
-                </View>
 
             </View>
-        </ImageBackground>
+
+        </View>
 
     );
+};
+
+ChatScreen.navigationOptions = {
+    tabBarVisible: false, // Hides the Bottom Tab Bar
 };
 
 export default ChatScreen;

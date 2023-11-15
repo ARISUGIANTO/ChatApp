@@ -8,7 +8,7 @@ const SearchBar = () => {
             <Icon name="search" size={35} color="#999" style={styles.icon} />
             <TextInput
                 style={styles.input}
-                placeholder="Search Coffe"
+
                 placeholderTextColor="#999"
             />
         </View>

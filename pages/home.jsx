@@ -57,6 +57,12 @@ const HomeScreen = ({ navigation }) => {
                             </View>
                             <Text style={{ color: 'white' }}>Yady</Text>
                         </View>
+                        <View style={{ alignItems: 'center' }}>
+                            <View style={{ marginRight: 8, padding: 4, borderRadius: 30, borderLeftColor: '#A6FF96', borderTopColor: '#F99417', borderRightColor: '#D4F6CC', borderBottomColor: '#1F8A70', borderWidth: 2 }}>
+                                <Image source={require('../src/assets/profile6.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
+                            </View>
+                            <Text style={{ color: 'white' }}>Bayu</Text>
+                        </View>
 
 
 
