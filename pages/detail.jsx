@@ -1,5 +1,5 @@
 // HomeScreen.js
-import React, { useState } from 'react';
+import React from 'react';
 import { View, StyleSheet, Text, ImageBackground, Image } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import SearchBar from '../component/SearchBar';

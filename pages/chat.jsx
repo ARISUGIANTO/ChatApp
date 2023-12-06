@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, Image, ImageBackground, FlatList } from 'react-native';
+import { View, Text, Image, TouchableOpacity, FlatList } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Card from '../component/card';
 import Circle from '../component/circle';
 import Input from '../component/input';
-import { Item } from 'react-native-paper/lib/typescript/components/Drawer/Drawer';
+
 
 
 const ChatScreen = ({ navigation }) => {
@@ -12,22 +12,26 @@ const ChatScreen = ({ navigation }) => {
         navigation.setOptions({
             headerTitle: '',
             headerRight: () => (
-                <View style={{ marginRight: 'auto', flexDirection: 'row', alignItems: 'center' }}>
-                    <Image
-                        source={require('../src/assets/profile.png')}
-                        style={{ width: 50, height: 50, borderRadius: 10 }}
-                    />
-                    <View>
-                        <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'black', marginLeft: 7 }}>Ach Ramdani</Text>
-                        <Text style={{ fontSize: 12, fontWeight: '400', color: 'black', marginLeft: 7 }}>Online</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', left: 90, padding: 5 }}>
-                        < MaterialCommunityIcons name="phone" color={'#003865'} size={28} style={{ marginRight: 8 }} />
-                        < MaterialCommunityIcons name="video" color={'#003865'} size={30} />
-                    </View>
+                <TouchableOpacity onPress={() => navigation.navigate('Profil')} style={{ marginRight: 'auto' }}>
+                    <View style={{ marginRight: 'auto', flexDirection: 'row', alignItems: 'center' }} >
+                        <Image
+                            source={require('../src/assets/profile.png')}
+                            style={{ width: 50, height: 50, borderRadius: 10 }}
+                        />
+                        <View>
+                            <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'black', marginLeft: 7 }}>Ach Ramdani</Text>
+                            <Text style={{ fontSize: 12, fontWeight: '400', color: 'black', marginLeft: 7 }}>Online</Text>
+                        </View>
+                        <View style={{ flexDirection: 'row', left: 50, padding: 5 }}>
+                            < MaterialCommunityIcons name="phone" color={'#003865'} size={28} style={{ marginRight: 8 }} />
+                            < MaterialCommunityIcons name="video" color={'#003865'} size={30} />
+                        </View>
 
 
-                </View>
+                    </View>
+                </TouchableOpacity>
+
+
             ),
         });
     }, [navigation]);
@@ -61,7 +65,7 @@ const ChatScreen = ({ navigation }) => {
                         <View style={{ alignItems: 'flex-end', marginRight: 15 }}>
                             <Text style={{ color: 'black' }}>{item.pesan}</Text>
                             <View>
-                                <Circle />
+                                <Card />
                             </View>
                             <Text style={{ fontSize: 14, fontWeight: '400', color: 'black', marginLeft: 'auto', marginRight: 10 }}>{item.jam}</Text>
                         </View>

@@ -6,7 +6,7 @@ import SearchBar from '../component/SearchBar';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
-const ContactScreen = () => {
+const SettingScreen = () => {
     return (
         <LinearGradient
             colors={['#F9F9F9', '#ffff']} // Warna atas dan bawah latar belakang
@@ -163,4 +163,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default ContactScreen;
+export default SettingScreen;

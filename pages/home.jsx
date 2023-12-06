@@ -1,9 +1,11 @@
 // HomeScreen.js
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import SearchBar from '../component/SearchBar';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+// component
+import Circle from '../component/circle';
 
 
 const HomeScreen = ({ navigation }) => {
@@ -27,46 +29,34 @@ const HomeScreen = ({ navigation }) => {
                     </View>
                     {/* status bar */}
                     <View style={{ flexDirection: 'row', marginTop: 10, padding: 5 }}>
-                        <View style={{ alignItems: 'center' }}>
+                        <View style={{ alignItems: 'center', }}>
                             <View style={{ marginRight: 8, padding: 4, borderRadius: 30, borderLeftColor: '#A6FF96', borderTopColor: '#F99417', borderWidth: 2 }}>
                                 <Image source={require('../src/assets/profile.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
                             </View>
                             < MaterialCommunityIcons name="plus-circle" color={'red'} size={15} style={{ position: 'relative', marginTop: -11, marginRight: -18, backgroundColor: 'white', width: 15, height: 15, borderRadius: 10, alignItems: 'center' }} />
                             <Text style={{ color: 'white', marginTop: -4 }}>My story</Text>
                         </View>
-                        <View style={{ alignItems: 'center' }}>
-                            <View style={{ marginRight: 8, padding: 4, borderRadius: 30, borderColor: '#A6FF96', borderWidth: 2 }}>
-                                <Image source={require('../src/assets/profile5.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                            </View>
-                            <Text style={{ color: 'white' }}>Muhlis</Text>
-                        </View>
-                        <View style={{ alignItems: 'center' }}>
-                            <View style={{ marginRight: 8, padding: 4, borderRadius: 30, borderLeftColor: '#A6FF96', borderTopColor: '#F99417', borderRightColor: '#D4F6CC', borderWidth: 2 }}>
-                                <Image source={require('../src/assets/profile2.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                            </View >
-                            <Text style={{ color: 'white' }}>Thufael</Text></View>
-                        <View style={{ alignItems: 'center' }}>
-                            <View style={{ marginRight: 8, padding: 4, borderRadius: 30, borderColor: '#A6FF96', borderWidth: 2 }}>
-                                <Image source={require('../src/assets/profile6.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                            </View>
-                            <Text style={{ color: 'white' }}>Yuda</Text>
-                        </View>
-                        <View style={{ alignItems: 'center' }}>
-                            <View style={{ marginRight: 8, padding: 4, borderRadius: 30, borderLeftColor: '#A6FF96', borderTopColor: '#F99417', borderRightColor: '#D4F6CC', borderBottomColor: '#1F8A70', borderWidth: 2 }}>
-                                <Image source={require('../src/assets/profile3.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                            </View>
-                            <Text style={{ color: 'white' }}>Yady</Text>
-                        </View>
-                        <View style={{ alignItems: 'center' }}>
-                            <View style={{ marginRight: 8, padding: 4, borderRadius: 30, borderLeftColor: '#A6FF96', borderTopColor: '#F99417', borderRightColor: '#D4F6CC', borderBottomColor: '#1F8A70', borderWidth: 2 }}>
-                                <Image source={require('../src/assets/profile6.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                            </View>
-                            <Text style={{ color: 'white' }}>Bayu</Text>
-                        </View>
-
-
-
+                        <ScrollView horizontal>
+                            <TouchableOpacity>
+                                <Circle imageSource={require('../src/assets/profile2.png')}
+                                    text="Muhlis" />
+                            </TouchableOpacity>
+                            <Circle imageSource={require('../src/assets/profile3.png')}
+                                text="Thufael" />
+                            <Circle imageSource={require('../src/assets/profile4.png')}
+                                text="King" />
+                            <Circle imageSource={require('../src/assets/profile5.png')}
+                                text="Dwi" />
+                            <Circle imageSource={require('../src/assets/profile6.png')}
+                                text="Bayu" />
+                            <Circle imageSource={require('../src/assets/profile.png')}
+                                text="Moh" />
+                            <Circle imageSource={require('../src/assets/profile3.png')}
+                                text="Ach" />
+                        </ScrollView>
                     </View>
+
+
                 </View>
                 {/* List nama-nama chat */}
                 <View style={{ backgroundColor: '#FFFFFF', borderTopRightRadius: 30, borderTopLeftRadius: 30, marginTop: -30 }}>

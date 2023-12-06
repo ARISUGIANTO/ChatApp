@@ -1,46 +1,27 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 
-const Circle = ({ title, price, description }) => {
+const Circle = ({ imageSource, text }) => {
   return (
-    <View style={styles.card}>
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.price}>{price}</Text>
-      <Text style={styles.description}>{description}</Text>
+    <View style={{ alignItems: 'center' }}>
+      <View style={{ marginRight: 8, padding: 4, borderRadius: 30, borderColor: '#A6FF96', borderWidth: 2 }}>
+        <Image source={imageSource} style={styles.image} />
+      </View >
+      {text && <Text style={styles.text}>{text}</Text>}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  card: {
-    backgroundColor: '#003865',
-    borderTopLeftRadius: 20,
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 40,
-    padding: 15,
-    marginTop: 10,
-    marginBottom: 10,
-    marginLeft: 8,
-    width: 200,
-    height: 60,
-    elevation: 4
+  image: {
 
+    width: 50,
+    height: 50,
+    borderRadius: 20
   },
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 5,
-  },
-  price: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#FF6F00',
-    marginBottom: 10,
-  },
-  description: {
-    fontSize: 14,
-    color: '#777',
-  },
+  text: {
+    color: 'white'
+  }
 });
 
 export default Circle;

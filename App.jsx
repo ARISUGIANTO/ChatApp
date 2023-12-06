@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Image, HeaderContainer } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // tambahan
@@ -7,72 +8,73 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 // Screens
 import HomeScreen from './pages/home';
 import CallScreen from './pages/detail';
-import SettingsScreen from './pages/Setting';
-import ContactScreen from './pages/contact';
 import ChatScreen from './pages/chat';
+import SettingScreen from './pages/Setting';
+import ContactScreen from './pages/Contact';
+import ProfileScreen from './pages/Profile';
 
-//Screen names
-const homeName = "Home";
-const detailsName = "Calls";
-const settingsName = "Setting";
-const ContactName = "contact";
+
+
+
 
 
 const Tab = createBottomTabNavigator();
-// tambahan
-const HomeStack = createStackNavigator();
-const HomeStackScreen = () => {
+const Nav = createStackNavigator();
+
+
+
+
+const Mytabs = () => {
   return (
-    <HomeStack.Navigator>
-      <HomeStack.Screen name="home" component={HomeScreen} options={{ headerShown: false }} />
-      <HomeStack.Screen name="Chat" component={ChatScreen} />
-    </HomeStack.Navigator>
-  );
-};
+    <Tab.Navigator
+      initialRouteName="Pesan"
+      activeColor="#003865"
+      inactiveColor="#A6FF96"
+      barStyle={{ backgroundColor: '#694fad' }}
+    >
+      <Tab.Screen name='Pesan' component={HomeScreen} options={{
+        headerShown: false,
+        tabBarLabel: 'Pesan',
+        tabBarIcon: ({ color }) => (
+          <MaterialCommunityIcons name="chat" color={color} size={40} />
+        ),
+      }} />
+      <Tab.Screen name='Panggilan' component={CallScreen} options={{
+        headerShown: false,
+        tabBarLabel: 'Panggilan',
+        tabBarIcon: ({ color }) => (
+          <MaterialCommunityIcons name="phone" color={color} size={40} />
+        ),
+      }} />
+      <Tab.Screen name='Kontak' component={ContactScreen} options={{
+        headerShown: false,
+        tabBarLabel: 'Kontak',
+        tabBarIcon: ({ color }) => (
+          <MaterialCommunityIcons name="account-box" color={color} size={40} />
+        ),
+      }} />
+      <Tab.Screen name='Profil' component={SettingScreen} options={{
+        headerShown: false,
+        tabBarLabel: 'Setting',
+        tabBarIcon: ({ color }) => (
+          <MaterialCommunityIcons name="cog-outline" color={color} size={40} />
+        ),
+      }} />
+
+    </Tab.Navigator>
+
+  )
+
+}
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name={homeName} component={HomeStackScreen}
-          options={{
-            tabBarLabel: 'Message',
-            headerShown: false,
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="message-text" color={color} size={size} />
-            ),
-            tabBarBadge: 8,
-          }}
-        />
-        <Tab.Screen name={detailsName} component={CallScreen}
-          options={{
-            tabBarLabel: 'Calls',
-            headerShown: false,
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="phone" color={color} size={size} />
-            ),
-            tabBarBadge: 2,
-          }} />
-        <Tab.Screen name={ContactName} component={ContactScreen}
-          options={{
-            tabBarLabel: 'Contact',
-            headerShown: false,
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="account-box" color={color} size={size} />
-            ),
-          }} />
-        <Tab.Screen name={settingsName} component={SettingsScreen}
-          options={{
-            tabBarLabel: 'Setting',
-            headerShown: false,
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="cog" color={color} size={size} />
-            ),
-          }} />
-
-      </Tab.Navigator>
-
-
+      <Nav.Navigator>
+        <Nav.Screen name="Main" component={Mytabs} options={{ headerShown: false }} />
+        <Nav.Screen name="Chat" component={ChatScreen} />
+        <Nav.Screen name="Profil" component={ProfileScreen} />
+      </Nav.Navigator>
     </NavigationContainer>
   );
 }
