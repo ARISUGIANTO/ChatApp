@@ -1,12 +1,95 @@
 // HomeScreen.js
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, ImageBackground, Image } from 'react-native';
+import { View, StyleSheet, Text, ImageBackground, Image, FlatList } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import SearchBar from '../component/SearchBar';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {
+    Container,
+    Card,
+    UserInfo,
+    UserImgWrapper,
+    UserImg,
+    UserInfoText,
+    UserName,
+    MessageText,
+    TextSection,
+} from '../styles/homeStyle';
 
 
-const ContactScreen = () => {
+const contact = [
+    {
+        id: '1',
+        userName: 'Ach Ramdani',
+        userImg: require('../src/assets/profile.png'),
+        messageText:
+            'Coding Is My Live🫶',
+    },
+    {
+        id: '2',
+        userName: 'Bayu',
+        userImg: require('../src/assets/profile2.png'),
+        messageText:
+            'Kuli Boy',
+    },
+    {
+        id: '3',
+        userName: 'Iqbal',
+        userImg: require('../src/assets/profile3.png'),
+        messageText:
+            'Sibuk',
+    },
+    {
+        id: '4',
+        userName: 'Thufael',
+        userImg: require('../src/assets/profile4.png'),
+        messageText:
+            'This Is Cogil',
+    },
+    {
+        id: '5',
+        userName: 'Yuda',
+        userImg: require('../src/assets/profile5.png'),
+        messageText:
+            'Coding Is My Live🫶',
+    },
+    {
+        id: '7',
+        userName: 'Muhlis',
+        userImg: require('../src/assets/profile6.png'),
+        messageText:
+            'Coding Is My Live🫶',
+    },
+    {
+        id: '8',
+        userName: 'Rohil',
+        userImg: require('../src/assets/profile4.png'),
+        messageText:
+            'Coding Is My Live🫶',
+    },
+    {
+        id: '9',
+        userName: 'King',
+        userImg: require('../src/assets/profile3.png'),
+        messageText:
+            'Coding Is My Live🫶',
+    },
+    {
+        id: '10',
+        userName: 'Indra',
+        userImg: require('../src/assets/profile2.png'),
+        messageText:
+            'Coding Is My Live🫶',
+    },
+
+
+]
+const sortedContact = contact.slice().sort((a, b) =>
+    a.userName.localeCompare(b.userName)
+);
+
+const ContactScreen = ({ navigation }) => {
+
     return (
         <LinearGradient
             colors={['#F9F9F9', '#ffff']} // Warna atas dan bawah latar belakang
@@ -26,8 +109,8 @@ const ContactScreen = () => {
                         </View>
                     </View>
                 </View>
-                {/* area panggilan */}
-                <View style={{ backgroundColor: '#FFFFFF', borderTopRightRadius: 30, borderTopLeftRadius: 30, marginTop: -30 }}>
+                {/* area contact */}
+                <Container>
                     <View style={{
                         justifyContent: 'center', alignItems: 'center',
                     }}>
@@ -39,86 +122,34 @@ const ContactScreen = () => {
                             borderColor: '#EBE3D5',
                         }} ></View>
                     </View>
-                    <View style={{ margin: 10, }}>
-                        <Text style={{ fontSize: 20, fontWeight: 'bold', fontFamily: ' lucida grande' }}>Kontak</Text>
-                    </View>
-                    <View style={{ marginLeft: 23, marginBottom: 5 }}>
-                        <Text style={{ fontSize: 20, fontWeight: 'bold', fontFamily: ' lucida grande' }}>A</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
-                        <View>
-                            <Image source={require('../src/assets/profile.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                        </View>
-
-                        <View style={{ flex: 1, marginLeft: 10, }}>
-                            <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Ach Ramdani</Text>
-                            <Text style={{ fontSize: 10, fontWeight: 300 }}>Coding Is My Life👌</Text>
-                        </View>
-                    </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
-                        <Image source={require('../src/assets/profile6.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                        <View style={{ flex: 1, marginLeft: 10, }}>
-                            <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Ach Rohil Kh</Text>
-                            <Text style={{ fontSize: 10, fontWeight: 300 }}>YAKUSA❤️</Text>
-                        </View>
-                    </View>
-                    <View style={{ marginLeft: 23, marginBottom: 5 }}>
-                        <Text style={{ fontSize: 20, fontWeight: 'bold', fontFamily: ' lucida grande' }}>B</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
-                        <Image source={require('../src/assets/profile5.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                        <View style={{ flex: 1, marginLeft: 10, }}>
-                            <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Bayu Yalta</Text>
-
-                            <Text style={{ fontSize: 10, fontWeight: 300 }}>StarBoy😎</Text>
-                        </View>
-                    </View>
-                    <View style={{ marginLeft: 23, marginBottom: 5 }}>
-                        <Text style={{ fontSize: 20, fontWeight: 'bold', fontFamily: ' lucida grande' }}>D</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
-                        <Image source={require('../src/assets/profile3.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                        <View style={{ flex: 1, marginLeft: 10, }}>
-                            <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Dwi Rafinul A</Text>
-                            <Text style={{ fontSize: 10, fontWeight: 300 }}>Sibuk</Text>
-                        </View>
-                    </View>
-                    <View style={{ marginLeft: 23, marginBottom: 5 }}>
-                        <Text style={{ fontSize: 20, fontWeight: 'bold', fontFamily: ' lucida grande' }}>K</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
-                        <Image source={require('../src/assets/profile.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                        <View style={{ flex: 1, marginLeft: 10, }}>
-                            <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>King Mulyadi</Text>
-                            < MaterialCommunityIcons name="call-received" color={'#003865'} size={15} />
-                            <Text style={{ fontSize: 10, fontWeight: 300 }}>Santai dulu ga sihhh</Text>
-                        </View>
-                    </View>
-                    <View style={{ marginLeft: 23, marginBottom: 5 }}>
-                        <Text style={{ fontSize: 20, fontWeight: 'bold', fontFamily: ' lucida grande' }}>M</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
-                        <Image source={require('../src/assets/profile4.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                        <View style={{ flex: 1, marginLeft: 10, }}>
-                            <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Moh Iqbal AR</Text>
-                            <Text style={{ fontSize: 10, fontWeight: 300 }}>Kemarin 13.45</Text>
-                        </View>
-
-
-                    </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
-                        <Image source={require('../src/assets/profile2.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                        <View style={{ flex: 1, marginLeft: 10, }}>
-                            <Text style={{ fontSize: 18, fontWeight: 600, color: 'red' }}>Thufael Mirza</Text>
-                            < MaterialCommunityIcons name="call-received" color={'red'} size={15} />
-                            <Text style={{ fontSize: 10, fontWeight: 300 }}>Hari ini 11.00</Text>
-                        </View>
-
-                    </View>
+                    <Text style={{ fontSize: 20, right: 159, top: 7, fontWeight: 'bold', marginBottom: 8 }}>Kontak</Text>
+                    <FlatList
+                        data={sortedContact}
+                        keyExtractor={item => item.id}
+                        renderItem={({ item }) => (
+                            <Card onPress={() => navigation.navigate('Chat', { userName: item.userName, userImg: item.userImg })}>
+                                <UserInfo>
+                                    <UserImgWrapper>
+                                        <UserImg source={item.userImg} />
+                                    </UserImgWrapper>
+                                    <TextSection>
+                                        <UserInfoText>
+                                            <UserName>{item.userName}</UserName>
+                                        </UserInfoText>
+                                        <MessageText>{item.messageText}</MessageText>
+                                    </TextSection>
+                                </UserInfo>
+                            </Card>
+                        )}
+                    />
+                </Container>
 
 
 
-                </View>
+
+
+
+
 
             </View>
 
@@ -130,8 +161,6 @@ const ContactScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-
-        // Tidak perlu background color di sini karena warna latar belakang diatur menggunakan LinearGradient
     },
     head: {
         marginLeft: 120,

@@ -1,14 +1,89 @@
 // HomeScreen.js
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { View, StyleSheet, Text, Image, TouchableOpacity, ScrollView, FlatList } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import SearchBar from '../component/SearchBar';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 // component
 import Circle from '../component/circle';
 
+import {
+    Container,
+    Card,
+    UserInfo,
+    UserImgWrapper,
+    UserImg,
+    UserInfoText,
+    UserName,
+    MessageText,
+    TextSection,
+    PostTime
+} from '../styles/homeStyle';
+
+
+
+const Messages = [
+    {
+        id: '1',
+        userName: 'Muhlis',
+        userImg: require('../src/assets/profile2.png'),
+        messageTime: '4 mins ago',
+        messageText:
+            'Hey there, this is my test for a post of my social app in React Native.',
+    },
+    {
+        id: '2',
+        userName: 'Thufael',
+        userImg: require('../src/assets/profile3.png'),
+        messageTime: '2 hours ago',
+        messageText:
+            'Hey there, this is my test for a post of my social app in React Native.',
+    },
+    {
+        id: '3',
+        userName: 'King',
+        userImg: require('../src/assets/profile4.png'),
+        messageTime: '1 hours ago',
+        messageText:
+            'Hey there, this is my test for a post of my social app in React Native.',
+    },
+    {
+        id: '4',
+        userName: 'Yuda',
+        userImg: require('../src/assets/profile5.png'),
+        messageTime: '1 day ago',
+        messageText:
+            'Hey there, this is my test for a post of my social app in React Native.',
+    },
+    {
+        id: '5',
+        userName: 'Bayu',
+        userImg: require('../src/assets/profile6.png'),
+        messageTime: '2 days ago',
+        messageText:
+            'Hey there, this is my test for a post of my social app in React Native.',
+    },
+    {
+        id: '6',
+        userName: 'Iqbal',
+        userImg: require('../src/assets/profile4.png'),
+        messageTime: '2 days ago',
+        messageText:
+            'Hey there, this is my test for a post of my social app in React Native.',
+    },
+    {
+        id: '7',
+        userName: 'Iqbal',
+        userImg: require('../src/assets/profile4.png'),
+        messageTime: '2 days ago',
+        messageText:
+            'Hey there, this is my test for a post of my social app in React Native.',
+    },
+];
+
 
 const HomeScreen = ({ navigation }) => {
+
     return (
         <LinearGradient
             colors={['#F9F9F9', '#ffff']} // Warna atas dan bawah latar belakang
@@ -24,7 +99,9 @@ const HomeScreen = ({ navigation }) => {
                                 style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginTop: 65, marginLeft: 70 }}>WhatMe</Text>
                         </View>
                         <View style={{ width: 50, height: 50, marginTop: 50, marginLeft: - 50 }}>
-                            <Image source={require('../src/assets/profile.png')} style={styles.head} />
+                            <TouchableOpacity onPress={() => navigation.navigate('Profil')}>
+                                <Image source={require('../src/assets/profile.png')} style={styles.head} />
+                            </TouchableOpacity>
                         </View>
                     </View>
                     {/* status bar */}
@@ -56,140 +133,30 @@ const HomeScreen = ({ navigation }) => {
                         </ScrollView>
                     </View>
 
-
                 </View>
                 {/* List nama-nama chat */}
-                <View style={{ backgroundColor: '#FFFFFF', borderTopRightRadius: 30, borderTopLeftRadius: 30, marginTop: -30 }}>
-                    <View style={{
-                        justifyContent: 'center', alignItems: 'center',
-                    }}>
-                        <View style={{
-                            marginTop: 10,
-                            width: 50,
-                            height: 0,
-                            borderWidth: 3,
-                            borderColor: '#EBE3D5',
-                        }} ></View>
-                    </View>
-                    <TouchableOpacity onPress={() => navigation.navigate('Chat')} >
-                        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
-                            <View>
-                                <Image source={require('../src/assets/profile.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                                <View style={{ backgroundColor: '#A6FF96', width: 10, height: 10, borderRadius: 10, position: 'relative', marginTop: -8, marginLeft: 30 }}></View>
-                            </View>
-
-                            <View style={{ flex: 1, marginLeft: 10, }}>
-                                <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Ach Ramdani</Text>
-                                <Text style={{ fontSize: 10, fontWeight: 300 }}>Kapan Kamu Kerumah?</Text>
-                            </View>
-                            <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
-                                <Text style={{ fontSize: 10 }}>11.04</Text>
-                                <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
-                                    <Text style={{ color: 'white' }}>2</Text>
-                                </View>
-                            </View>
-
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
-                            <Image source={require('../src/assets/profile2.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                            <View style={{ flex: 1, marginLeft: 10, }}>
-                                <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Thufael Mirza</Text>
-                                <Text style={{ fontSize: 10, fontWeight: 300 }}>Ketemu ditempat biasa ya!?</Text>
-                            </View>
-                            <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
-                                <Text style={{ fontSize: 10 }}>Kemaren</Text>
-                                <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
-                                    <Text style={{ color: 'white' }}>1</Text>
-                                </View>
-                            </View>
-
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
-                            <Image source={require('../src/assets/profile3.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                            <View style={{ flex: 1, marginLeft: 10, }}>
-                                <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Dwi Rafinul A</Text>
-                                <Text style={{ fontSize: 10, fontWeight: 300 }}>Sampai jumpa kembali👋</Text>
-                            </View>
-                            <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
-                                <Text style={{ fontSize: 10 }}>Kemaren</Text>
-                                <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
-                                    <Text style={{ color: 'white' }}>1</Text>
-                                </View>
-                            </View>
-
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
-                            <Image source={require('../src/assets/profile4.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                            <View style={{ flex: 1, marginLeft: 10, }}>
-                                <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Moh Iqbal AR</Text>
-                                <Text style={{ fontSize: 10, fontWeight: 300 }}>Jangan lupa hadir Ya!</Text>
-                            </View>
-                            <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
-                                <Text style={{ fontSize: 10 }}>Kemaren</Text>
-                                <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
-                                    <Text style={{ color: 'white' }}>1</Text>
-                                </View>
-                            </View>
-
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
-                            <Image source={require('../src/assets/profile5.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                            <View style={{ flex: 1, marginLeft: 10, }}>
-                                <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Bayu Yalta</Text>
-                                <Text style={{ fontSize: 10, fontWeight: 300 }}>Info hari ini Boss</Text>
-                            </View>
-                            <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
-                                <Text style={{ fontSize: 10 }}>5/11/23</Text>
-                                <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
-                                    <Text style={{ color: 'white' }}>1</Text>
-                                </View>
-                            </View>
-
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
-                            <Image source={require('../src/assets/profile6.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                            <View style={{ flex: 1, marginLeft: 10, }}>
-                                <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>Ach Rohil Kh</Text>
-                                <Text style={{ fontSize: 10, fontWeight: 300 }}>Aku izin ga bisa masuk hari ini </Text>
-                            </View>
-                            <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
-                                <Text style={{ fontSize: 10 }}>01/11/23</Text>
-                                <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
-                                    <Text style={{ color: 'white' }}>1</Text>
-                                </View>
-                            </View>
-
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5, marginBottom: 10 }}>
-                            <Image source={require('../src/assets/profile.png')} style={{ width: 50, height: 50, borderRadius: 20 }} />
-                            <View style={{ flex: 1, marginLeft: 10, }}>
-                                <Text style={{ fontSize: 18, fontWeight: 600, color: 'black' }}>King Mulyadi</Text>
-                                <Text style={{ fontSize: 10, fontWeight: 300 }}>Mabar Yukks😁</Text>
-                            </View>
-                            <View style={{ flex: 1, marginLeft: 100, marginRight: -50 }}>
-                                <Text style={{ fontSize: 10 }}>01/11/23</Text>
-                                <View style={{ backgroundColor: 'red', width: 17, height: 17, borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
-                                    <Text style={{ color: 'white' }}>1</Text>
-                                </View>
-                            </View>
-
-                        </View>
-                    </TouchableOpacity>
-
-                </View>
-
+                <Container>
+                    <FlatList
+                        data={Messages}
+                        keyExtractor={item => item.id}
+                        renderItem={({ item }) => (
+                            <Card onPress={() => navigation.navigate('Chat', { userName: item.userName, userImg: item.userImg })}>
+                                <UserInfo>
+                                    <UserImgWrapper>
+                                        <UserImg source={item.userImg} />
+                                    </UserImgWrapper>
+                                    <TextSection>
+                                        <UserInfoText>
+                                            <UserName>{item.userName}</UserName>
+                                            <PostTime>{item.messageTime}</PostTime>
+                                        </UserInfoText>
+                                        <MessageText>{item.messageText}</MessageText>
+                                    </TextSection>
+                                </UserInfo>
+                            </Card>
+                        )}
+                    />
+                </Container>
             </View>
 
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Image, HeaderContainer } from 'react-native'
+import { Image, HeaderContainer, View, StyleSheet, Text } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // tambahan
@@ -72,11 +72,44 @@ const App = () => {
     <NavigationContainer>
       <Nav.Navigator>
         <Nav.Screen name="Main" component={Mytabs} options={{ headerShown: false }} />
-        <Nav.Screen name="Chat" component={ChatScreen} />
+        <Nav.Screen name="Chat" component={ChatScreen}
+          options={({ route }) => ({
+            headerTitle: () => (
+              <View style={styles.headerContainer}>
+                <Image source={route.params.userImg} style={styles.userImg} />
+                <Text style={styles.userName}>{route.params.userName}</Text>
+                <View style={{ left: 180, marginRight: 8 }}>
+                  < MaterialCommunityIcons name="video" color={'#2e64e5'} size={24} />
+                </View>
+                <View style={{ left: 180, marginRight: 8 }}>
+                  < MaterialCommunityIcons name="phone" color={'#2e64e5'} size={23} />
+                </View>
+
+              </View>
+            ),
+          })} />
         <Nav.Screen name="Profil" component={ProfileScreen} />
       </Nav.Navigator>
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  headerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  userImg: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    marginRight: 10,
+  },
+  userName: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'black',
+  },
+});
 
 export default App;
